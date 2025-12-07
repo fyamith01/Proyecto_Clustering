@@ -1,0 +1,37 @@
+{
+  "metodo_reduccion": "PCA",
+  "dimensiones_originales": 13,
+  "dimensiones_reducidas": 3,
+  "varianza_explicada": 0.4900700393998061,
+  "modelos_clustering": {
+    "kmeans": {
+      "n_clusters": 2,
+      "silhouette_score": 0.5133344140907911,
+      "calinski_harabasz_score": 47636.12046879288,
+      "davies_bouldin_score": 0.8871492534136732
+    },
+    "gmm": {
+      "n_clusters": 2,
+      "silhouette_score": 0.2540586519652235,
+      "calinski_harabasz_score": 25540.44506116718,
+      "davies_bouldin_score": 1.7169227301313505
+    },
+    "dbscan": {
+      "n_clusters": 342,
+      "silhouette_score": -0.6139616326280518,
+      "calinski_harabasz_score": 157.29420485420252,
+      "davies_bouldin_score": 1.6850827168268092
+    },
+    "birch": {
+      "n_clusters": 2,
+      "silhouette_score": 0.5843239052647018,
+      "calinski_harabasz_score": 27038.57149287922,
+      "davies_bouldin_score": 0.6568180480686656
+    }
+  },
+  "mejor_modelo": {
+    "criterio": "silhouette_score",
+    "modelo": "birch",
+    "score": 0.5843239052647018
+  }
+}

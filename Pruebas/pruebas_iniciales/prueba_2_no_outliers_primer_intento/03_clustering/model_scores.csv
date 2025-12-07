@@ -1,0 +1,4 @@
+modelo,param,silhouette,ARI_stability_train
+KMeans,k=14,0.4779726623489395,0.7147031640486052
+DBSCAN,"eps=0.157, min_samples=10",0.7356367616494315,
+GMM,n_components=15,0.48997616611102923,0.7392609632186568

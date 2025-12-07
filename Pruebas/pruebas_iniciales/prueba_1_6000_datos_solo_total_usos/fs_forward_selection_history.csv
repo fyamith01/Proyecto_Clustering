@@ -1,0 +1,10 @@
+num_features,added,cv_avg_silhouette
+1,AportePC,-inf
+1,PorcentajeTarifaA,-inf
+1,PorcentajeJovenes,-inf
+1,PorcentajeAdulto,-inf
+1,PorcentajeAdultoJoven,-inf
+1,PorcentajeTarifaB,-inf
+1,PorcentajeAdultoMayor,-inf
+1,PorcentajeTarifaC,-inf
+1,PorcentajeFemenino,-inf

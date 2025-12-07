@@ -1,0 +1,36 @@
+{
+  "nivel1_grupos": {
+    "Micro": 43197,
+    "Pequeña": 11057,
+    "Mediana": 2257,
+    "Grande": 572,
+    "Macro": 132
+  },
+  "nivel2_grupos": {
+    "Micro_bajo": 42912,
+    "Pequeña_bajo": 10545,
+    "Mediana_bajo": 751,
+    "Mediana_medio_bajo": 526,
+    "Mediana_alto": 516,
+    "Pequeña_alto": 512,
+    "Mediana_medio_alto": 464,
+    "Micro_alto": 285,
+    "Grande_bajo": 229,
+    "Grande_medio_bajo": 143,
+    "Grande_alto": 116,
+    "Grande_medio_alto": 84,
+    "Macro_medio_bajo": 38,
+    "Macro_bajo": 33,
+    "Macro_alto": 33,
+    "Macro_medio_alto": 28
+  },
+  "features_nivel2": {
+    "Micro": "UsosEmpleo",
+    "Pequeña": "UsosEmpleo",
+    "Mediana": "UsosCultura",
+    "Grande": "UsosEmpleo",
+    "Macro": "UsosEmpleo"
+  },
+  "total_registros": 57215,
+  "ramas_procesadas": 16
+}
