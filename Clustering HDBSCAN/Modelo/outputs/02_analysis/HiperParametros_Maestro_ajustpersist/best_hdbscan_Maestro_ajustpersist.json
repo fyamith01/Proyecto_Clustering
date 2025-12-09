@@ -1,0 +1,14 @@
+{
+  "min_cluster_size": 198,
+  "min_samples": 19,
+  "cluster_selection_epsilon": 0.39980276970238043,
+  "metric": "euclidean",
+  "mean_prob": 0.8584904114246067,
+  "median_persist": 0.1484344559080169,
+  "noise_pct": 19.864509680524193,
+  "n_clusters": 37,
+  "optuna_value": 0.1776796614740942,
+  "trials": 400,
+  "elapsed_sec": 9787.71,
+  "cluster_selection_method": "eom"
+}

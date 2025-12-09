@@ -1,0 +1,51 @@
+2025-12-07 20:53:10,441 - INFO - Iniciando pipeline provisional. Log file: outputs\pipeline_log_20251207_205310.log
+2025-12-07 20:53:10,446 - INFO - Detectando separador para: afiliados_mas_usos.csv
+2025-12-07 20:53:10,462 - INFO - Separador detectado: ','
+2025-12-07 20:53:11,338 - INFO - Headers detectados: True (coincidencias=34)
+2025-12-07 20:53:13,449 - INFO - CSV limpio → outputs\01_clean\afiliados_mas_usos_cleaned.csv
+2025-12-07 20:53:13,783 - INFO - Columnas del DataFrame después de cargar y tipear: ['DocEmp', 'TipoDocEmp', 'NomEmp', 'CodclaseEconomicaEmp', 'CodSeccionEconomicaEmp', 'SeccionEconomicaEmp', 'NitSinDV', 'Femenino', 'Masculino', 'Desconocido', 'TarifaA', 'TarifaB', 'TarifaC', 'Jovenes', 'AdultoJoven', 'Adulto', 'AdultoMayor', 'TotalAfiliados', 'Aporte', 'TotalUsos', 'UsosCultura', 'UsosEducacion', 'UsosSalud', 'UsosEmpleo', 'PorcentajeFemenino', 'PorcentajeMasculino', 'PorcentajeDesconocido', 'PorcentajeTarifaA', 'PorcentajeTarifaB', 'PorcentajeTarifaC', 'PorcentajeJovenes', 'PorcentajeAdultoJoven', 'PorcentajeAdulto', 'PorcentajeAdultoMayor']
+2025-12-07 20:53:14,507 - INFO - Datos cargados y tipeados. Filas: 54026, Columnas: 34
+2025-12-07 20:53:14,507 - INFO - Iniciando cálculo y guardado de resumen completo en Excel.
+2025-12-07 20:53:14,519 - INFO - Calculando resumen estadístico para columnas numéricas.
+2025-12-07 20:53:14,621 - INFO - Resumen estadístico calculado.
+2025-12-07 20:53:14,623 - INFO - Calculando resumen estadístico para columnas categóricas: ['SeccionEconomicaEmp']
+2025-12-07 20:53:14,651 - INFO - Resumen estadístico de categóricas calculado.
+2025-12-07 20:53:14,664 - INFO - Resumen numérico escrito en hoja 'Resumen Numericas'.
+2025-12-07 20:53:14,667 - INFO - Resumen categórico escrito en hoja 'Resumen Categoricas'.
+2025-12-07 20:53:14,962 - INFO - Resumen completo guardado en: outputs\02_analysis\data_summary.xlsx
+2025-12-07 20:53:15,064 - INFO - Aplicando transformaciones composicionales e ILR para el bloque: GENERO
+2025-12-07 20:53:20,155 - INFO - Columnas ILR generadas para el bloque 'GENERO': ['GENERO_ILR_1', 'GENERO_ILR_2']
+2025-12-07 20:53:20,168 - INFO - Aplicando transformaciones composicionales e ILR para el bloque: TARIFA
+2025-12-07 20:53:24,848 - INFO - Columnas ILR generadas para el bloque 'TARIFA': ['TARIFA_ILR_1', 'TARIFA_ILR_2']
+2025-12-07 20:53:24,866 - INFO - Aplicando transformaciones composicionales e ILR para el bloque: EDAD
+2025-12-07 20:53:29,908 - INFO - Columnas ILR generadas para el bloque 'EDAD': ['EDAD_ILR_1', 'EDAD_ILR_2', 'EDAD_ILR_3']
+2025-12-07 20:53:29,948 - INFO - Aplicando transformaciones log1p a variables seleccionadas.
+2025-12-07 20:53:29,964 - INFO - Transformaciones log1p aplicadas (índice preservado).
+2025-12-07 20:53:29,999 - INFO - DF clustering preparado: 54026 filas, 11 cols (ILR=7, Log1p=3, Categórica=sí). Índice preservado (p.ej. RowID).
+2025-12-07 20:53:30,012 - INFO - Dataframe de entrada para FAMD preparado.
+2025-12-07 20:53:30,013 - INFO - Iniciando análisis de correlación.
+2025-12-07 20:53:30,034 - INFO - Matriz de correlación calculada.
+2025-12-07 20:53:30,036 - INFO - Generando Pairplot (puede tardar)...
+2025-12-07 20:53:56,984 - INFO - Pairplot guardado en: outputs\02_analysis\correlation_pairplot_pre_famd.png
+2025-12-07 20:53:56,986 - INFO - Generando Heatmap de correlación.
+2025-12-07 20:53:57,919 - INFO - Heatmap guardado en: outputs\02_analysis\correlation_heatmap_pre_famd.png
+2025-12-07 20:53:57,921 - INFO - Análisis de correlación completado.
+2025-12-07 20:53:59,216 - INFO - CSV guardado en: outputs\01_clean\datos_clustering_famd_input.csv (index=True)
+2025-12-07 20:53:59,218 - INFO - Iniciando reducción FAMD a 9 componentes, incluyendo 'SeccionEconomicaEmp'.
+2025-12-07 20:54:00,232 - INFO - Varianza explicada por los primeros 9 componentes FAMD (calculada de autovalores): 0.9089 (90.89%)
+2025-12-07 20:54:00,234 - INFO - ¡La varianza explicada (90.89%) es mayor o igual al 90% requerido!
+2025-12-07 20:54:00,243 - INFO - Resumen detallado de autovalores y varianza explicada por componente FAMD:
+2025-12-07 20:54:02,695 - INFO - Reducción FAMD completada (9 componentes retenidos).
+2025-12-07 20:54:02,720 - INFO - Iniciando escalado con RobustScaler para todas las columnas numéricas.
+2025-12-07 20:54:02,767 - INFO - Escalado completado con RobustScaler. DataFrame final: 54026 filas, 9 columnas.
+2025-12-07 20:54:03,989 - INFO - CSV guardado en: outputs\01_clean\datos_clustering_famd_scaled.csv (index=True)
+2025-12-07 20:54:03,990 - INFO - No se ha especificado un tamaño de muestra o el tamaño es mayor/igual al total de filas. Usando todos los datos.
+2025-12-07 20:54:03,993 - INFO - DataFrame final para clusterización (componentes FAMD escalados y muestreado):
+2025-12-07 20:54:04,003 - INFO - Directorio para la base de datos de Optuna asegurado: outputs\02_analysis\HiperParametros_Maestro_ajustpersist
+2025-12-07 20:54:04,005 - INFO - HDBSCAN(metric=euclidean, min_cluster_size=150, min_samples=15, cluster_selection_method=eom, cluster_selection_epsilon=0.39119439, allow_single_cluster=False)
+2025-12-07 20:54:39,953 - INFO - HDBSCAN: clusters=47 (sin contar ruido), ruido=18.84%
+2025-12-07 20:55:05,467 - INFO - Métricas HDBSCAN -> n_clusters=47, ruido=18.84%, silhouette=0.3332918753322625, CH=3693.6180863593736, DB=1.1706959462822804, mean_prob=0.8450182551099319, median_persist=0.09547774698356092
+2025-12-07 20:55:05,489 - INFO - [Noise-fill] Puntos de ruido originales: 10178 (18.84%)
+2025-12-07 20:55:05,490 - INFO - Escribiendo CSV completo con etiquetas en: outputs\03_Resultados\afiliados_mas_usos_clusterizados.csv
+2025-12-07 20:55:06,409 - INFO - Archivo guardado: outputs\03_Resultados\afiliados_mas_usos_clusterizados.csv (filas=54026, cols=40)
+2025-12-07 20:55:08,871 - INFO - Perfiles de clusters exportados a: outputs\03_Resultados\perfil_clusters.xlsx

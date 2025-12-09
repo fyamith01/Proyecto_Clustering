@@ -1,0 +1,91 @@
+2025-12-08 14:45:52,253 - INFO - Iniciando pipeline provisional. Log file: outputs\pipeline_log_20251208_144552.log
+2025-12-08 14:45:52,261 - INFO - Detectando separador para: afiliados_mas_usos.csv
+2025-12-08 14:45:52,263 - INFO - Separador detectado: ','
+2025-12-08 14:45:52,677 - INFO - Headers detectados: True (coincidencias=34)
+2025-12-08 14:45:54,590 - INFO - CSV limpio → outputs\01_clean\afiliados_mas_usos_cleaned.csv
+2025-12-08 14:45:54,967 - INFO - Columnas del DataFrame después de cargar y tipear: ['DocEmp', 'TipoDocEmp', 'NomEmp', 'CodclaseEconomicaEmp', 'CodSeccionEconomicaEmp', 'SeccionEconomicaEmp', 'NitSinDV', 'Femenino', 'Masculino', 'Desconocido', 'TarifaA', 'TarifaB', 'TarifaC', 'Jovenes', 'AdultoJoven', 'Adulto', 'AdultoMayor', 'TotalAfiliados', 'Aporte', 'TotalUsos', 'UsosCultura', 'UsosEducacion', 'UsosSalud', 'UsosEmpleo', 'PorcentajeFemenino', 'PorcentajeMasculino', 'PorcentajeDesconocido', 'PorcentajeTarifaA', 'PorcentajeTarifaB', 'PorcentajeTarifaC', 'PorcentajeJovenes', 'PorcentajeAdultoJoven', 'PorcentajeAdulto', 'PorcentajeAdultoMayor']
+2025-12-08 14:45:55,676 - INFO - Datos cargados y tipeados. Filas: 54026, Columnas: 34
+2025-12-08 14:45:55,676 - INFO - Iniciando cálculo y guardado de resumen completo en Excel.
+2025-12-08 14:45:55,693 - INFO - Calculando resumen estadístico para columnas numéricas.
+2025-12-08 14:45:55,818 - INFO - Resumen estadístico calculado.
+2025-12-08 14:45:55,820 - INFO - Calculando resumen estadístico para columnas categóricas: ['SeccionEconomicaEmp']
+2025-12-08 14:45:55,851 - INFO - Resumen estadístico de categóricas calculado.
+2025-12-08 14:45:55,865 - INFO - Resumen numérico escrito en hoja 'Resumen Numericas'.
+2025-12-08 14:45:55,867 - INFO - Resumen categórico escrito en hoja 'Resumen Categoricas'.
+2025-12-08 14:45:56,174 - INFO - Resumen completo guardado en: outputs\02_analysis\data_summary.xlsx
+2025-12-08 14:45:56,258 - INFO - Aplicando transformaciones composicionales e ILR para el bloque: GENERO
+2025-12-08 14:46:01,508 - INFO - Columnas ILR generadas para el bloque 'GENERO': ['GENERO_ILR_1', 'GENERO_ILR_2']
+2025-12-08 14:46:01,519 - INFO - Aplicando transformaciones composicionales e ILR para el bloque: TARIFA
+2025-12-08 14:46:06,108 - INFO - Columnas ILR generadas para el bloque 'TARIFA': ['TARIFA_ILR_1', 'TARIFA_ILR_2']
+2025-12-08 14:46:06,125 - INFO - Aplicando transformaciones composicionales e ILR para el bloque: EDAD
+2025-12-08 14:46:11,014 - INFO - Columnas ILR generadas para el bloque 'EDAD': ['EDAD_ILR_1', 'EDAD_ILR_2', 'EDAD_ILR_3']
+2025-12-08 14:46:11,038 - INFO - Aplicando transformaciones log1p a variables seleccionadas.
+2025-12-08 14:46:11,058 - INFO - Transformaciones log1p aplicadas (índice preservado).
+2025-12-08 14:46:11,083 - INFO - DF clustering preparado: 54026 filas, 11 cols (ILR=7, Log1p=3, Categórica=sí). Índice preservado (p.ej. RowID).
+2025-12-08 14:46:11,088 - INFO - Dataframe de entrada para FAMD preparado.
+2025-12-08 14:46:11,088 - INFO - Iniciando análisis de correlación.
+2025-12-08 14:46:11,119 - INFO - Matriz de correlación calculada.
+2025-12-08 14:46:11,134 - INFO - Generando Pairplot (puede tardar)...
+2025-12-08 14:46:39,601 - INFO - Pairplot guardado en: outputs\02_analysis\correlation_pairplot_pre_famd.png
+2025-12-08 14:46:39,601 - INFO - Generando Heatmap de correlación.
+2025-12-08 14:46:40,385 - INFO - Heatmap guardado en: outputs\02_analysis\correlation_heatmap_pre_famd.png
+2025-12-08 14:46:40,385 - INFO - Análisis de correlación completado.
+2025-12-08 14:46:41,534 - INFO - CSV guardado en: outputs\01_clean\datos_clustering_famd_input.csv (index=True)
+2025-12-08 14:46:41,534 - INFO - Iniciando reducción FAMD a 9 componentes, incluyendo 'SeccionEconomicaEmp'.
+2025-12-08 14:46:42,403 - INFO - Varianza explicada por los primeros 9 componentes FAMD (calculada de autovalores): 0.9089 (90.89%)
+2025-12-08 14:46:42,403 - INFO - ¡La varianza explicada (90.89%) es mayor o igual al 90% requerido!
+2025-12-08 14:46:42,408 - INFO - Resumen detallado de autovalores y varianza explicada por componente FAMD:
+2025-12-08 14:46:44,865 - INFO - Reducción FAMD completada (9 componentes retenidos).
+2025-12-08 14:46:44,886 - INFO - Iniciando escalado con RobustScaler para todas las columnas numéricas.
+2025-12-08 14:46:44,920 - INFO - Escalado completado con RobustScaler. DataFrame final: 54026 filas, 9 columnas.
+2025-12-08 14:46:46,088 - INFO - CSV guardado en: outputs\01_clean\datos_clustering_famd_scaled.csv (index=True)
+2025-12-08 14:46:46,088 - INFO - No se ha especificado un tamaño de muestra o el tamaño es mayor/igual al total de filas. Usando todos los datos.
+2025-12-08 14:46:46,103 - INFO - DataFrame final para clusterización (componentes FAMD escalados y muestreado):
+2025-12-08 14:46:46,120 - INFO - Directorio para la base de datos de Optuna asegurado: outputs\02_analysis\HiperParametros_Maestro_ajustpersist
+2025-12-08 14:46:46,124 - INFO - [Optuna] Usando hiperparámetros cargados de: outputs\02_analysis\HiperParametros_Maestro_ajustpersist\best_hdbscan_Maestro_ajustpersist.json
+2025-12-08 14:46:46,128 - INFO - HDBSCAN(metric=euclidean, min_cluster_size=198, min_samples=19, cluster_selection_method=eom, cluster_selection_epsilon=0.4, allow_single_cluster=False)
+2025-12-08 14:47:22,517 - INFO - HDBSCAN: clusters=37 (sin contar ruido), ruido=19.86%
+2025-12-08 14:47:50,350 - INFO - Métricas HDBSCAN -> n_clusters=37, ruido=19.86%, silhouette=0.30413699385251697, CH=3651.092933212947, DB=1.1897535755354507, mean_prob=0.8585588289296227, median_persist=0.11063602283798417
+2025-12-08 14:47:50,367 - INFO - [Noise-fill] Puntos de ruido originales: 10732 (19.86%)
+2025-12-08 14:48:09,609 - INFO - [Stability-jitter] Base -> n_clusters=42, noise=25.34%, mean_prob=0.846, median_persist=0.130
+2025-12-08 14:48:29,913 - INFO - [Stability-jitter] Run 0: n_clusters=39, noise=24.46%, mean_prob=0.843, median_persist=0.122, ARI vs base=0.901
+2025-12-08 14:48:44,241 - INFO - [Stability-jitter] Run 1: n_clusters=40, noise=26.41%, mean_prob=0.847, median_persist=0.131, ARI vs base=0.922
+2025-12-08 14:48:57,238 - INFO - [Stability-jitter] Run 2: n_clusters=41, noise=27.25%, mean_prob=0.841, median_persist=0.134, ARI vs base=0.901
+2025-12-08 14:49:11,488 - INFO - [Stability-jitter] Run 3: n_clusters=41, noise=25.94%, mean_prob=0.844, median_persist=0.140, ARI vs base=0.922
+2025-12-08 14:49:25,916 - INFO - [Stability-jitter] Run 4: n_clusters=40, noise=25.76%, mean_prob=0.844, median_persist=0.136, ARI vs base=0.932
+2025-12-08 14:49:25,916 - INFO - [Stability-jitter] Resumen -> mean_ari=0.916, n_clusters=40.2 ± 0.7, noise=25.96% ± 0.91%
+2025-12-08 14:49:40,038 - INFO - [Stability-multires] Referencia -> mcs=198, ms=19, eps=0.400, metric=euclidean, mean_prob=0.846, median_persist=0.130, noise=25.34%, n_clusters=42
+2025-12-08 14:49:54,993 - INFO - [Stability-multires] mcs=158, ms=15, eps=0.200 -> mean_prob=0.800, median_persist=0.153, noise=38.54%, n_clusters=58, ARI vs best=0.468
+2025-12-08 14:50:10,680 - INFO - [Stability-multires] mcs=158, ms=15, eps=0.400 -> mean_prob=0.840, median_persist=0.138, noise=20.45%, n_clusters=48, ARI vs best=0.826
+2025-12-08 14:50:23,588 - INFO - [Stability-multires] mcs=158, ms=15, eps=0.600 -> mean_prob=0.899, median_persist=0.084, noise=13.38%, n_clusters=40, ARI vs best=0.527
+2025-12-08 14:50:36,385 - INFO - [Stability-multires] mcs=158, ms=19, eps=0.200 -> mean_prob=0.797, median_persist=0.148, noise=37.98%, n_clusters=57, ARI vs best=0.544
+2025-12-08 14:50:50,438 - INFO - [Stability-multires] mcs=158, ms=19, eps=0.400 -> mean_prob=0.836, median_persist=0.134, noise=24.30%, n_clusters=50, ARI vs best=0.939
+2025-12-08 14:51:03,059 - INFO - [Stability-multires] mcs=158, ms=19, eps=0.600 -> mean_prob=0.889, median_persist=0.080, noise=16.29%, n_clusters=43, ARI vs best=0.600
+2025-12-08 14:51:15,788 - INFO - [Stability-multires] mcs=158, ms=22, eps=0.200 -> mean_prob=0.798, median_persist=0.148, noise=39.30%, n_clusters=55, ARI vs best=0.521
+2025-12-08 14:51:32,858 - INFO - [Stability-multires] mcs=158, ms=22, eps=0.400 -> mean_prob=0.835, median_persist=0.124, noise=25.36%, n_clusters=48, ARI vs best=0.912
+2025-12-08 14:51:46,082 - INFO - [Stability-multires] mcs=158, ms=22, eps=0.600 -> mean_prob=0.886, median_persist=0.097, noise=16.55%, n_clusters=41, ARI vs best=0.594
+2025-12-08 14:51:58,866 - INFO - [Stability-multires] mcs=198, ms=15, eps=0.200 -> mean_prob=0.791, median_persist=0.155, noise=32.90%, n_clusters=48, ARI vs best=0.659
+2025-12-08 14:52:11,089 - INFO - [Stability-multires] mcs=198, ms=15, eps=0.400 -> mean_prob=0.830, median_persist=0.120, noise=21.76%, n_clusters=41, ARI vs best=0.877
+2025-12-08 14:52:23,281 - INFO - [Stability-multires] mcs=198, ms=15, eps=0.600 -> mean_prob=0.895, median_persist=0.086, noise=14.98%, n_clusters=35, ARI vs best=0.562
+2025-12-08 14:52:35,553 - INFO - [Stability-multires] mcs=198, ms=19, eps=0.200 -> mean_prob=0.812, median_persist=0.150, noise=39.02%, n_clusters=49, ARI vs best=0.590
+2025-12-08 14:52:47,856 - INFO - [Stability-multires] mcs=198, ms=19, eps=0.400 -> mean_prob=0.846, median_persist=0.130, noise=25.34%, n_clusters=42, ARI vs best=1.000
+2025-12-08 14:53:00,734 - INFO - [Stability-multires] mcs=198, ms=19, eps=0.600 -> mean_prob=0.895, median_persist=0.081, noise=17.33%, n_clusters=36, ARI vs best=0.647
+2025-12-08 14:53:13,441 - INFO - [Stability-multires] mcs=198, ms=22, eps=0.200 -> mean_prob=0.816, median_persist=0.149, noise=40.54%, n_clusters=47, ARI vs best=0.546
+2025-12-08 14:53:26,251 - INFO - [Stability-multires] mcs=198, ms=22, eps=0.400 -> mean_prob=0.847, median_persist=0.121, noise=26.60%, n_clusters=40, ARI vs best=0.945
+2025-12-08 14:53:38,962 - INFO - [Stability-multires] mcs=198, ms=22, eps=0.600 -> mean_prob=0.894, median_persist=0.098, noise=17.80%, n_clusters=34, ARI vs best=0.623
+2025-12-08 14:53:51,816 - INFO - [Stability-multires] mcs=237, ms=15, eps=0.200 -> mean_prob=0.804, median_persist=0.156, noise=33.45%, n_clusters=44, ARI vs best=0.635
+2025-12-08 14:54:04,804 - INFO - [Stability-multires] mcs=237, ms=15, eps=0.400 -> mean_prob=0.839, median_persist=0.121, noise=22.32%, n_clusters=37, ARI vs best=0.852
+2025-12-08 14:54:17,458 - INFO - [Stability-multires] mcs=237, ms=15, eps=0.600 -> mean_prob=0.901, median_persist=0.087, noise=15.53%, n_clusters=31, ARI vs best=0.548
+2025-12-08 14:54:29,696 - INFO - [Stability-multires] mcs=237, ms=19, eps=0.200 -> mean_prob=0.826, median_persist=0.145, noise=39.55%, n_clusters=45, ARI vs best=0.567
+2025-12-08 14:54:42,032 - INFO - [Stability-multires] mcs=237, ms=19, eps=0.400 -> mean_prob=0.855, median_persist=0.128, noise=25.87%, n_clusters=38, ARI vs best=0.970
+2025-12-08 14:54:54,396 - INFO - [Stability-multires] mcs=237, ms=19, eps=0.600 -> mean_prob=0.901, median_persist=0.083, noise=17.86%, n_clusters=32, ARI vs best=0.629
+2025-12-08 14:55:07,129 - INFO - [Stability-multires] mcs=237, ms=22, eps=0.200 -> mean_prob=0.824, median_persist=0.150, noise=39.88%, n_clusters=43, ARI vs best=0.550
+2025-12-08 14:55:20,848 - INFO - [Stability-multires] mcs=237, ms=22, eps=0.400 -> mean_prob=0.851, median_persist=0.144, noise=25.56%, n_clusters=37, ARI vs best=0.894
+2025-12-08 14:55:34,738 - INFO - [Stability-multires] mcs=237, ms=22, eps=0.600 -> mean_prob=0.893, median_persist=0.100, noise=17.99%, n_clusters=32, ARI vs best=0.614
+2025-12-08 14:55:34,753 - INFO - [Stability] Resumen jitter guardado en: outputs\02_analysis\Estabilidad_HDBSCAN_Maestro_ajustpersist\stability_jitter.json
+2025-12-08 14:55:34,766 - INFO - CSV guardado en: outputs\02_analysis\Estabilidad_HDBSCAN_Maestro_ajustpersist\stability_multiresolution.csv (index=False)
+2025-12-08 14:55:34,767 - INFO - [Stability] Resultados multiresolution guardados en: outputs\02_analysis\Estabilidad_HDBSCAN_Maestro_ajustpersist\stability_multiresolution.csv
+2025-12-08 14:55:34,768 - INFO - [Stability] Jitter -> mean_ari=0.916, min_ari=0.901, max_ari=0.932, mean_n_clusters=40.2, mean_noise_pct=25.96%
+2025-12-08 14:55:34,770 - INFO - Escribiendo CSV completo con etiquetas en: outputs\03_Resultados\afiliados_mas_usos_clusterizados.csv
+2025-12-08 14:55:35,734 - INFO - Archivo guardado: outputs\03_Resultados\afiliados_mas_usos_clusterizados.csv (filas=54026, cols=40)
+2025-12-08 14:55:37,665 - INFO - Perfiles de clusters exportados a: outputs\03_Resultados\perfil_clusters.xlsx

@@ -1,0 +1,52 @@
+2025-12-08 22:40:23,604 - INFO - Iniciando pipeline provisional. Log file: outputs\pipeline_log_20251208_224023.log
+2025-12-08 22:40:23,619 - INFO - Detectando separador para: afiliados_mas_usos.csv
+2025-12-08 22:40:23,653 - INFO - Separador detectado: ','
+2025-12-08 22:40:26,398 - INFO - Headers detectados: True (coincidencias=34)
+2025-12-08 22:40:37,519 - INFO - CSV limpio → outputs\01_clean\afiliados_mas_usos_cleaned.csv
+2025-12-08 22:40:39,183 - INFO - Columnas del DataFrame después de cargar y tipear: ['DocEmp', 'TipoDocEmp', 'NomEmp', 'CodclaseEconomicaEmp', 'CodSeccionEconomicaEmp', 'SeccionEconomicaEmp', 'NitSinDV', 'Femenino', 'Masculino', 'Desconocido', 'TarifaA', 'TarifaB', 'TarifaC', 'Jovenes', 'AdultoJoven', 'Adulto', 'AdultoMayor', 'TotalAfiliados', 'Aporte', 'TotalUsos', 'UsosCultura', 'UsosEducacion', 'UsosSalud', 'UsosEmpleo', 'PorcentajeFemenino', 'PorcentajeMasculino', 'PorcentajeDesconocido', 'PorcentajeTarifaA', 'PorcentajeTarifaB', 'PorcentajeTarifaC', 'PorcentajeJovenes', 'PorcentajeAdultoJoven', 'PorcentajeAdulto', 'PorcentajeAdultoMayor']
+2025-12-08 22:40:43,871 - INFO - Datos cargados y tipeados. Filas: 54026, Columnas: 34
+2025-12-08 22:40:43,871 - INFO - Iniciando cálculo y guardado de resumen completo en Excel.
+2025-12-08 22:40:43,926 - INFO - Calculando resumen estadístico para columnas numéricas.
+2025-12-08 22:40:44,413 - INFO - Resumen estadístico calculado.
+2025-12-08 22:40:44,413 - INFO - Calculando resumen estadístico para columnas categóricas: ['SeccionEconomicaEmp']
+2025-12-08 22:40:44,518 - INFO - Resumen estadístico de categóricas calculado.
+2025-12-08 22:40:44,573 - INFO - Resumen numérico escrito en hoja 'Resumen Numericas'.
+2025-12-08 22:40:44,581 - INFO - Resumen categórico escrito en hoja 'Resumen Categoricas'.
+2025-12-08 22:40:45,059 - INFO - Resumen completo guardado en: outputs\02_analysis\data_summary.xlsx
+2025-12-08 22:40:45,183 - INFO - Aplicando transformaciones composicionales e ILR para el bloque: GENERO
+2025-12-08 22:41:15,016 - INFO - Columnas ILR generadas para el bloque 'GENERO': ['GENERO_ILR_1', 'GENERO_ILR_2']
+2025-12-08 22:41:15,059 - INFO - Aplicando transformaciones composicionales e ILR para el bloque: TARIFA
+2025-12-08 22:41:38,916 - INFO - Columnas ILR generadas para el bloque 'TARIFA': ['TARIFA_ILR_1', 'TARIFA_ILR_2']
+2025-12-08 22:41:38,986 - INFO - Aplicando transformaciones composicionales e ILR para el bloque: EDAD
+2025-12-08 22:42:05,638 - INFO - Columnas ILR generadas para el bloque 'EDAD': ['EDAD_ILR_1', 'EDAD_ILR_2', 'EDAD_ILR_3']
+2025-12-08 22:42:05,766 - INFO - Aplicando transformaciones log1p a variables seleccionadas.
+2025-12-08 22:42:05,822 - INFO - Transformaciones log1p aplicadas (índice preservado).
+2025-12-08 22:42:05,939 - INFO - DF clustering preparado: 54026 filas, 11 cols (ILR=7, Log1p=3, Categórica=sí). Índice preservado (p.ej. RowID).
+2025-12-08 22:42:05,983 - INFO - Dataframe de entrada para FAMD preparado.
+2025-12-08 22:42:05,986 - INFO - Iniciando análisis de correlación.
+2025-12-08 22:42:06,058 - INFO - Matriz de correlación calculada.
+2025-12-08 22:42:06,070 - INFO - Generando Pairplot (puede tardar)...
+2025-12-08 22:43:47,211 - INFO - Pairplot guardado en: outputs\02_analysis\correlation_pairplot_pre_famd.png
+2025-12-08 22:43:47,213 - INFO - Generando Heatmap de correlación.
+2025-12-08 22:43:49,640 - INFO - Heatmap guardado en: outputs\02_analysis\correlation_heatmap_pre_famd.png
+2025-12-08 22:43:49,644 - INFO - Análisis de correlación completado.
+2025-12-08 22:43:52,969 - INFO - CSV guardado en: outputs\01_clean\datos_clustering_famd_input.csv (index=True)
+2025-12-08 22:43:52,969 - INFO - Iniciando reducción FAMD a 9 componentes, incluyendo 'SeccionEconomicaEmp'.
+2025-12-08 22:43:55,208 - INFO - Varianza explicada por los primeros 9 componentes FAMD (calculada de autovalores): 0.9089 (90.89%)
+2025-12-08 22:43:55,217 - INFO - ¡La varianza explicada (90.89%) es mayor o igual al 90% requerido!
+2025-12-08 22:43:55,238 - INFO - Resumen detallado de autovalores y varianza explicada por componente FAMD:
+2025-12-08 22:44:01,951 - INFO - Reducción FAMD completada (9 componentes retenidos).
+2025-12-08 22:44:01,999 - INFO - Iniciando escalado con RobustScaler para todas las columnas numéricas.
+2025-12-08 22:44:02,116 - INFO - Escalado completado con RobustScaler. DataFrame final: 54026 filas, 9 columnas.
+2025-12-08 22:44:06,500 - INFO - CSV guardado en: outputs\01_clean\datos_clustering_famd_scaled.csv (index=True)
+2025-12-08 22:44:06,502 - INFO - No se ha especificado un tamaño de muestra o el tamaño es mayor/igual al total de filas. Usando todos los datos.
+2025-12-08 22:44:06,512 - INFO - DataFrame final para clusterización (componentes FAMD escalados y muestreado):
+2025-12-08 22:44:06,548 - INFO - Directorio para la base de datos de Optuna asegurado: outputs\02_analysis\HiperParametros_Maestro_ajustpersist
+2025-12-08 22:44:06,568 - INFO - [Optuna] Usando hiperparámetros cargados de: outputs\02_analysis\HiperParametros_Maestro_ajustpersist\best_hdbscan_Maestro_ajustpersist.json
+2025-12-08 22:44:06,571 - INFO - HDBSCAN(metric=euclidean, min_cluster_size=198, min_samples=19, cluster_selection_method=eom, cluster_selection_epsilon=0.39980276970238043, allow_single_cluster=False)
+2025-12-08 22:45:31,227 - INFO - HDBSCAN: clusters=37 (sin contar ruido), ruido=19.86%
+2025-12-08 22:46:27,532 - INFO - Métricas HDBSCAN -> n_clusters=37, ruido=19.86%, silhouette=0.30413699385251697, CH=3651.092933212947, DB=1.1897535755354507, mean_prob=0.8585588289296227, median_persist_raw=0.11063602283798417, median_persist_main_w=0.14843445590800997
+2025-12-08 22:46:27,602 - INFO - [Noise-fill] Puntos de ruido originales: 10732 (19.86%)
+2025-12-08 22:46:27,609 - INFO - Escribiendo CSV completo con etiquetas en: outputs\03_Resultados\afiliados_mas_usos_clusterizados.csv
+2025-12-08 22:46:31,894 - INFO - Archivo guardado: outputs\03_Resultados\afiliados_mas_usos_clusterizados.csv (filas=54026, cols=40)
+2025-12-08 22:46:40,329 - INFO - Perfiles de clusters exportados a: outputs\03_Resultados\perfil_clusters.xlsx
