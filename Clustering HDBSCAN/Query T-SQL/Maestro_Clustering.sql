@@ -25,7 +25,7 @@ WITH AfiliadosAgrupados AS (
     FROM
         [BI_corporativo].[AfiliadosComfama]
     WHERE
-        (Periodo BETWEEN '202411' AND '202510')
+        (Periodo BETWEEN '202412' AND '202511')
         AND (TipoEmpresa LIKE 'Empresa 4%' OR TipoEmpresa = 'Empresa')
         AND TipoAfiliado = 'Titular'
         AND NegocioAfil = 'Empresas'
@@ -71,7 +71,7 @@ SeccionUnica AS (
         SeccionEconomicaEmp
     FROM [BI_Corporativo].[AportantesComfama]
     WHERE
-        Periodo = '202510'
+        Periodo = '202511'
         AND (TipoAportante LIKE 'Empresa 4%' OR TipoAportante = 'Empresa')
         AND NegocioEmp = 'Empresas'
         AND SeccionEconomicaEmp NOT LIKE 'T_Actv%'
@@ -91,7 +91,7 @@ Aportes AS (
     WHERE EstadoAportante = 'Vigente'
         AND (TipoAportante LIKE 'Empresa 4%' OR TipoAportante LIKE 'Empresa%')
         AND NegocioEmp = 'Empresas'
-        AND (Periodo BETWEEN '202411' AND '202510')
+        AND (Periodo BETWEEN '202412' AND '202511')
         AND AportePagado > 0
         -- Validaciones
         --AND LTRIM(RTRIM(DocEmp)) <> ''
@@ -112,7 +112,7 @@ UsoServiciosAgrupados AS (
         [Prisma].[AdherenciaUsoServicios]
     WHERE 
         Servicio NOT LIKE '%Cuota monetaria%'
-        AND PeriodoUso BETWEEN '202411' AND '202510'
+        AND PeriodoUso BETWEEN '202412' AND '202511'
         AND CategoriaAfiliacion IN ('A','B','C')
         AND TipoAfiliado = 'Titular'
         AND DocEmp IS NOT NULL
